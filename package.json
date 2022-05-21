@@ -1,0 +1,20 @@
+{
+  "name": "three-sample",
+  "version": "1.0.0",
+  "description": "three.js learning sample",
+  "main": "script/main.js",
+  "scripts": {
+    "sass-dev": "sass --watch --update --style=expanded assets/styles/scss:assets/styles/css",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css"
+  },
+  "author": "sakthi",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.10.4",
+    "three": "^0.140.2"
+  },
+  "devDependencies": {
+    "sass": "^1.52.1"
+  }
+}
