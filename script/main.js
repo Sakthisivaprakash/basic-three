@@ -39,8 +39,8 @@ scene.add(light);
 var render = function() {
     requestAnimationFrame(render);
 
-    mesh.rotation.x += 0.05; // number indicate the speed of animation 0.01 | 0.05
-    mesh.rotation.y += 0.01;
+    // mesh.rotation.x += 0.05; // number indicate the speed of animation 0.01 | 0.05
+    // mesh.rotation.y += 0.01;
 
     // mesh.scale.x -= 0.01;
 
@@ -48,3 +48,14 @@ var render = function() {
 }
 
 render();
+
+
+this.tl = new TimelineMax({paused: true}); // .delay(.3)
+this.tl.to(this.mesh.scale, 1, {x: 2, ease: Expo.easeOut});
+this.tl.to(this.mesh.scale, .5, {x: .5, ease: Expo.easeOut});
+this.tl.to(this.mesh.position, .5, {x: 2, ease: Expo.easeOut});
+this.tl.to(this.mesh.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "=-1.5");
+
+document.body.addEventListener('click', () => {
+    this.tl.play();
+})
