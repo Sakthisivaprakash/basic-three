@@ -18,9 +18,17 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
 });
 
-var geometry = new THREE.SphereGeometry(1,10,10); // (1,10,10) (1,4,10) (1,4,4)
+var geometry = new THREE.BoxGeometry(1,1,1); // (1,10,10) (1,4,10) (1,4,4)
 var material = new THREE.MeshLambertMaterial({color: 0xFFCC00});
 var mesh = new THREE.Mesh(geometry, material);
+
+// mesh.position.x = -2;
+// mesh.position.y = 2;
+// mesh.position.z = 2;
+// mesh.position.set(2,2,-2);
+
+// mesh.rotation.set(45,0,0);
+// mesh.scale.set(1,2,1);
 
 scene.add(mesh);
 
@@ -28,4 +36,15 @@ var light = new THREE.PointLight(0xFFFFFF, 1, 500);
 light.position.set(10,0,25);
 scene.add(light);
 
-renderer.render(scene, camera);
+var render = function() {
+    requestAnimationFrame(render);
+
+    mesh.rotation.x += 0.05; // number indicate the speed of animation 0.01 | 0.05
+    mesh.rotation.y += 0.01;
+
+    // mesh.scale.x -= 0.01;
+
+    renderer.render(scene, camera);
+}
+
+render();
